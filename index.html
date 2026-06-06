@@ -2,35 +2,198 @@
 <html lang="lo">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ສະບາຍໃຈ - ສັ່ງຊື້ຫວຍ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ສະບາຍໃຈ - ສັ່ງຊື້ຫວຍລາວ/ໄທ</title>
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}body{background:#f5f7fb;padding:20px}.container{max-width:800px;margin:0 auto}.header{background:linear-gradient(135deg,#d32f2f,#b71c1c);color:#fff;padding:20px;border-radius:28px;text-align:center;margin-bottom:20px}.card{background:#fff;border-radius:28px;padding:20px}.row{display:flex;gap:10px;margin-bottom:10px;flex-wrap:wrap}.row input,.row select{flex:1;padding:12px;border:1px solid #ddd;border-radius:16px}.add-btn{background:#2e7d32;color:#fff;border:none;padding:10px 20px;border-radius:30px;cursor:pointer;margin:10px 0}.remove-btn{background:#ffdddd;color:#c0392b;border:none;padding:6px 12px;border-radius:20px;cursor:pointer}.total{background:#fff3e0;padding:15px;border-radius:20px;margin:15px 0;font-size:20px;font-weight:bold;text-align:right}.fb-btn{background:#1877f2;color:#fff;border:none;padding:14px;border-radius:40px;cursor:pointer;flex:1;font-weight:bold}.wa-btn{background:#25d366;color:#fff;border:none;padding:14px;border-radius:40px;cursor:pointer;flex:1;font-weight:bold}.buttons{display:flex;gap:12px;margin-top:15px}.seller-box{background:#e3f2fd;border-radius:20px;padding:15px;margin-top:15px}.seller-box textarea{width:100%;padding:10px;border-radius:16px;border:1px solid #ccc}h2{color:#d32f2f;margin-bottom:15px}
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+        body { background: #f5f7fb; padding-bottom: 100px; }
+        .header { background: linear-gradient(135deg, #d32f2f, #b71c1c); color: white; padding: 20px 16px; border-radius: 0 0 24px 24px; text-align: center; }
+        .header h1 { font-size: 28px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .header p { font-size: 14px; opacity: 0.9; margin-top: 6px; }
+        .container { max-width: 800px; margin: 0 auto; padding: 16px; }
+        .form-card { background: white; border-radius: 28px; padding: 20px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+        .form-card h3 { color: #d32f2f; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .lottery-table { width: 100%; border-collapse: collapse; }
+        .lottery-table th, .lottery-table td { padding: 12px 8px; text-align: left; border-bottom: 1px solid #eee; }
+        .lottery-table th { background: #f5f5f5; font-weight: bold; }
+        .lottery-table input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 12px; font-size: 16px; }
+        .lottery-table select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 12px; background: white; }
+        .add-row-btn { background: #2e7d32; color: white; border: none; padding: 10px 20px; border-radius: 40px; cursor: pointer; margin: 16px 0; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; }
+        .remove-row { background: #ffdddd; border: none; padding: 6px 12px; border-radius: 20px; color: #c0392b; cursor: pointer; font-size: 12px; }
+        .total-row { background: #fff3e0; padding: 16px; border-radius: 20px; margin: 16px 0; font-size: 20px; font-weight: bold; text-align: right; }
+        .seller-box { background: #e3f2fd; border-radius: 20px; padding: 16px; margin: 16px 0; }
+        .seller-box textarea { width: 100%; padding: 12px; border-radius: 16px; border: 1px solid #ccc; margin-top: 8px; font-size: 14px; }
+        .action-buttons { display: flex; gap: 12px; margin: 16px 0; }
+        .fb-btn { background: #1877f2; color: white; border: none; padding: 14px; border-radius: 40px; font-weight: bold; cursor: pointer; flex: 1; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .wa-btn { background: #25d366; color: white; border: none; padding: 14px; border-radius: 40px; font-weight: bold; cursor: pointer; flex: 1; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .info-note { background: #fff3e0; padding: 12px; border-radius: 16px; font-size: 13px; color: #e65100; text-align: center; margin: 16px 0; }
+        .footer { text-align: center; padding: 16px; color: #999; font-size: 12px; }
+        @media (max-width: 600px) {
+            .lottery-table th, .lottery-table td { padding: 8px 4px; }
+            .lottery-table input { font-size: 14px; padding: 8px; }
+        }
     </style>
 </head>
 <body>
+
+<div class="header">
+    <h1><span>🎰</span> ສະບາຍໃຈ ສັ່ງຊື້ຫວຍ</h1>
+    <p>ຊື້ຫວຍລາວ/ໄທ ຫຼາຍເລກໃນຄັ້ງດຽວ — ຄຳນວນລວມອັດຕະໂນມັດ</p>
+</div>
+
 <div class="container">
-    <div class="header"><h1>🎰 ສະບາຍໃຈ ສັ່ງຊື້ຫວຍ</h1><p>ຊື້ຫວຍລາວ/ໄທ ຫຼາຍເລກ ຄຳນວນລວມອັດຕະໂນມັດ</p></div>
-    <div class="card">
-        <h2>📝 ລາຍການສັ່ງຊື້</h2>
-        <div id="rows"><div class="row"><select class="lottery-type"><option>ຫວຍລາວ</option><option>ຫວຍໄທ</option></select><input type="text" class="lottery-number" placeholder="ເລກຫວຍ"><input type="number" class="lottery-amount" placeholder="ຈຳນວນເງິນ" value="1000"><button class="remove-btn" style="display:none">❌</button></div></div>
-        <button class="add-btn" id="addBtn">➕ ເພີ່ມແຖວ</button>
-        <div class="total">💰 ລວມທັງໝົດ: <span id="total">0</span> ກີບ</div>
-        <div class="seller-box"><div>📢 ຂໍ້ມູນຜູ້ຂາຍ (ລູກຄ້າຈະເຫັນ):</div><textarea id="sellerInfo" rows="2">ຮ້ານຫວຍສະບາຍໃຈ\nເບີໂທ: 020 12345678</textarea></div>
-        <div class="buttons"><button class="fb-btn" id="fbBtn">📘 ສົ່ງ Messenger</button><button class="wa-btn" id="waBtn">💚 ສົ່ງ WhatsApp</button></div>
+    <div class="info-note">
+        📢 ປ້ອນຂໍ້ມູນຫວຍທີ່ທ່ານຕ້ອງການຊື້ ສາມາດເພີ່ມຫຼາຍແຖວໄດ້
+    </div>
+
+    <div class="form-card">
+        <h3>📝 ລາຍການສັ່ງຊື້ຫວຍ</h3>
+        <table class="lottery-table" id="lotteryTable">
+            <thead>
+                <tr>
+                    <th>ປະເທດ</th>
+                    <th>ເລກຫວຍ</th>
+                    <th>ຈຳນວນເງິນ (ກີບ)</th>
+                    <th style="width: 50px"></th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr>
+                    <td><select class="lottery-type"><option value="ຫວຍລາວ">🇱🇦 ຫວຍລາວ</option><option value="ຫວຍໄທ">🇹🇭 ຫວຍໄທ</option></select></td>
+                    <td><input type="text" class="lottery-number" placeholder="ເຊັ່ນ: 1234"></td>
+                    <td><input type="number" class="lottery-amount" placeholder="ຈຳນວນເງິນ" value="1000"></td>
+                    <td><button class="remove-row" style="display:none;">❌</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="add-row-btn" id="addRowBtn">➕ ເພີ່ມ</button>
+        
+        <div class="total-row">
+            💰 ລວມທັງໝົດ: <span id="totalAmount">0</span> ກີບ
+        </div>
+    </div>
+
+    <div class="seller-box">
+        <div>📢 ຂໍ້ມູນຜູ້ຂາຍ (ລູກຄ້າຈະເຫັນເມື່ອສົ່ງຂໍ້ຄວາມ):</div>
+        <textarea id="sellerInfo" rows="3">ຫວຍສະບາຍໃຈ-หวยสบายใจ
+ເບີໂທ: 020 98297792
+ບໍລິການສັ່ງຊື້ຫວຍອອນລາຍ</textarea>
+    </div>
+
+    <div class="action-buttons">
+        <button class="fb-btn" id="sendFBBtn">📘 ສົ່ງຜ່ານ Messenger</button>
+        <button class="wa-btn" id="sendWABtn">💚 ສົ່ງຜ່ານ WhatsApp</button>
+    </div>
+
+    <div class="footer">
+        © ສະບາຍໃຈ ຫວຍ — ຂອບໃຈທີ່ໃຊ້ບໍລິການ
     </div>
 </div>
+
 <script>
-    const YOUR_PHONE="85620xxxxxxx";
-    const YOUR_MESSENGER_ID="100063618581398";
-    function updateTotal(){let t=0;document.querySelectorAll('.lottery-amount').forEach(e=>{let a=parseFloat(e.value);isNaN(a)||(t+=a)});document.getElementById('total').innerText=t.toLocaleString()}
-    function addRow(){let r=document.getElementById('rows'),d=document.createElement('div');d.className='row';d.innerHTML='<select class="lottery-type"><option>ຫວຍລາວ</option><option>ຫວຍໄທ</option></select><input type="text" class="lottery-number" placeholder="ເລກຫວຍ"><input type="number" class="lottery-amount" placeholder="ຈຳນວນເງິນ" value="1000"><button class="remove-btn">❌</button>';d.querySelector('.lottery-amount').addEventListener('input',updateTotal);d.querySelector('.remove-btn').onclick=()=>{d.remove();updateTotal()};r.appendChild(d);updateTotal()}
-    function getOrders(){let o=[];return document.querySelectorAll('#rows .row').forEach(r=>{let t=r.querySelector('.lottery-type')?.value,n=r.querySelector('.lottery-number')?.value.trim(),a=parseFloat(r.querySelector('.lottery-amount')?.value);n&&a>0&&o.push({type:t,number:n,amount:a})}),o}
-    function getMsg(){let o=getOrders();if(!o.length)return null;let s=document.getElementById('sellerInfo').value,d=new Date().toLocaleString('lo-LA'),i='',tot=0;return o.forEach((t,idx)=>{tot+=t.amount;i+=`%0A🔹 ${idx+1}. ${t.type} | ${t.number} | ${t.amount.toLocaleString()} ກີບ`}),`🛒 *ຄຳສັ່ງຊື້ຫວຍ*%0A📅 ${d}%0A%0A📋 *ລາຍການ:*%0A${i}%0A%0A💰 *ລວມ: ${tot.toLocaleString()} ກີບ*%0A%0A--- ຂໍ້ມູນຜູ້ຂາຍ ---%0A${s.replace(/\n/g,'%0A')}`}
-    document.getElementById('addBtn').onclick=addRow;
-    document.getElementById('fbBtn').onclick=()=>{if(!getOrders().length)return alert('ກະລຸນາເພີ່ມເລກຫວຍ');window.open(`https://m.me/${YOUR_MESSENGER_ID}?text=${getMsg()}`,'_blank')};
-    document.getElementById('waBtn').onclick=()=>{if(!getOrders().length)return alert('ກະລຸນາເພີ່ມເລກຫວຍ');window.open(`https://wa.me/${YOUR_PHONE}?text=${getMsg()}`,'_blank')};
-    document.querySelectorAll('.lottery-amount').forEach(i=>i.addEventListener('input',updateTotal));updateTotal();
+    // ຕັ້ງຄ່າເບີໂທ ແລະ ລິ້ງ Messenger ຂອງທ່ານ
+    // ປ່ຽນຕາມນີ້ໃຫ້ເປັນຂອງທ່ານ
+    const YOUR_PHONE = "85620xxxxxxxx";     // ເບີໂທລະສັບ (ຕົວຢ່າງ: 85620 12345678) ບໍ່ຕ້ອງມີ +
+    const YOUR_MESSENGER_ID = "100063618581398";  // ເອົາລິ້ງ Messenger ຂອງທ່ານ (ເບິ່ງວິທີຂ້າງລຸ່ມ)
+
+    function updateTotal() {
+        let total = 0;
+        document.querySelectorAll('.lottery-amount').forEach(input => {
+            let val = parseFloat(input.value);
+            if(!isNaN(val)) total += val;
+        });
+        document.getElementById('totalAmount').innerText = total.toLocaleString();
+    }
+
+    function addNewRow() {
+        const tbody = document.getElementById('tableBody');
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td><select class="lottery-type"><option value="ຫວຍລາວ">🇱🇦 ຫວຍລາວ</option><option value="ຫວຍໄທ">🇹🇭 ຫວຍໄທ</option></select></td>
+            <td><input type="text" class="lottery-number" placeholder="ເຊັ່ນ: 1234"></td>
+            <td><input type="number" class="lottery-amount" placeholder="ຈຳນວນເງິນ" value="1000"></td>
+            <td><button class="remove-row">❌</button></td>
+        `;
+        newRow.querySelector('.lottery-amount').addEventListener('input', updateTotal);
+        newRow.querySelector('.remove-row').addEventListener('click', function() {
+            newRow.remove();
+            updateTotal();
+        });
+        tbody.appendChild(newRow);
+        updateTotal();
+    }
+
+    function getAllOrders() {
+        const orders = [];
+        const rows = document.querySelectorAll('#tableBody tr');
+        rows.forEach(row => {
+            const type = row.querySelector('.lottery-type')?.value || '';
+            const number = row.querySelector('.lottery-number')?.value.trim() || '';
+            const amount = parseFloat(row.querySelector('.lottery-amount')?.value) || 0;
+            if(number && amount > 0) {
+                orders.push({ type, number, amount });
+            }
+        });
+        return orders;
+    }
+
+    function getOrderMessage() {
+        const orders = getAllOrders();
+        if(orders.length === 0) return null;
+        
+        const sellerInfo = document.getElementById('sellerInfo').value;
+        const date = new Date().toLocaleString('lo-LA');
+        let total = 0;
+        let itemsList = "";
+        
+        orders.forEach((item, idx) => {
+            total += item.amount;
+            itemsList += `%0A🔹 ${idx+1}. ${item.type} | ເລກ: ${item.number} | ${item.amount.toLocaleString()} ກີບ`;
+        });
+        
+        let message = `🛒 *ຄຳສັ່ງຊື້ຫວຍ*%0A`;
+        message += `📅 ວັນທີ: ${date}%0A`;
+        message += `%0A📋 *ລາຍການທີ່ສັ່ງ:*%0A${itemsList}%0A`;
+        message += `%0A💰 *ລວມທັງໝົດ: ${total.toLocaleString()} ກີບ*%0A`;
+        message += `%0A--- ຂໍ້ມູນຜູ້ຂາຍ ---%0A${sellerInfo.replace(/\n/g, '%0A')}`;
+        message += `%0A%0Aຂອບໃຈທີ່ໃຊ້ບໍລິການ ຫວຍສະບາຍໃຈ 🎰`;
+        
+        return message;
+    }
+
+    function sendToFacebook() {
+        const orders = getAllOrders();
+        if(orders.length === 0) {
+            alert("ກະລຸນາປ້ອນຂໍ້ມູນຫວຍຢ່າງນ້ອຍ 1 ລາຍການ");
+            return;
+        }
+        const message = getOrderMessage();
+        // ເປີດ Messenger ກັບ ID ຂອງທ່ານ
+        const fbUrl = `https://m.me/${YOUR_MESSENGER_ID}?text=${message}`;
+        window.open(fbUrl, '_blank');
+    }
+
+    function sendToWhatsApp() {
+        const orders = getAllOrders();
+        if(orders.length === 0) {
+            alert("ກະລຸນາປ້ອນຂໍ້ມູນຫວຍຢ່າງນ້ອຍ 1 ລາຍການ");
+            return;
+        }
+        const message = getOrderMessage();
+        const waUrl = `https://wa.me/${YOUR_PHONE}?text=${message}`;
+        window.open(waUrl, '_blank');
+    }
+
+    // ເພີ່ມ event listeners ໃສ່ແຖວທຳອິດ
+    document.querySelectorAll('.lottery-amount').forEach(input => {
+        input.addEventListener('input', updateTotal);
+    });
+    
+    document.getElementById('addRowBtn').addEventListener('click', addNewRow);
+    document.getElementById('sendFBBtn').addEventListener('click', sendToFacebook);
+    document.getElementById('sendWABtn').addEventListener('click', sendToWhatsApp);
+    
+    updateTotal();
 </script>
 </body>
 </html>
